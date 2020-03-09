@@ -5,11 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>cz.chalda.s2i</groupId>
-  <artifactId>s2i-test</artifactId>
+  <artifactId>s2i-test-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
-  <name>s2i-test</name>
-  <description>Test of an s2i application</description>
+  <name>s2i-test :: parent</name>
+  <description>Test of an s2i application - parent</description>
   <url>http://github.com/ochaloup/s2i-test</url>
 
   <properties>
@@ -62,20 +63,9 @@
         </plugin>
       </plugins>
     </pluginManagement>
-
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <mainClass>cz.chalda.s2i.HelloS2I</mainClass>
-            </manifest>
-          </archive>
-        </configuration>
-      </plugin>
-    </plugins>
   </build>
+
+  <modules>
+    <module>appdir</module>
+  </modules> 
 </project>
