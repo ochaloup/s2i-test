@@ -1,0 +1,14 @@
+
+set -x
+
+cd /tmp
+curl -L -O https://github.com/ochaloup/s2i-test/archive/multimodule.zip
+unzip -d /tmp/multi ./multimodule.zip
+cd /tmp/multi/s2i-test-multimodule/
+mvn install -Dmaven.repo.local=/tmp/artifacts/m2 -pl .
+cd -
+
+# This assemble script overrides the default one
+# we need to wrap the execution with our cofiguration changes
+# but then run the default assemble
+/usr/local/s2i/assemble
